@@ -24,11 +24,11 @@ mongoose.connect('mongodb://localhost/spu-nas-web', {
   .catch(err => console.log(err));
 
 // Load Subscribers model
-require('./models/Subscriber');
+require('./models/subscriber');
 const Subscriber = mongoose.model('subscribers');
 
 // Load User model
-require('./models/User');
+require('./models/user');
 const User = mongoose.model('users');
 
 // Handlebars Middleware
@@ -282,6 +282,4 @@ app.get('/logout', (req, res) => {
 // Start server
 const port = 5000;
 
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
-});
+app.listen(process.env.PORT || 5000);
