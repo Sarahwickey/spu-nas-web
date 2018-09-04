@@ -1,0 +1,82 @@
+<div class="wrapper">
+  <nav class="navbar navbar-expand-lg navbar-dark head-bg-dark">
+    <div class="container"> <a href="/" title="Sol Plaatje University" target="_self" class="navbar-brand"><img src="img/1200px-Sol_Plaatje_University_logo.svg.png" alt="Sol Plaatje University Logo" width="75" height="102" title="Sol Plaatje University"/></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active"> <a href="/" title="Sol Plaatje University" target="_self" class="nav-link">Home <span class="sr-only">(current)</span></a> </li>
+          <li class="nav-item"> <a href="/about" title="About" target="_self" class="nav-link">About</a> </li>
+          <li class="nav-item"> <a href="/departments" title="Departments" target="_self" class="nav-link">Departments</a> </li>
+          <li class="nav-item"> <a href="/aps" title="APS" target="_self" class="nav-link">APS</a> </li>
+          <li class="nav-item"> <a href="/staff" title="Staff" target="_self" class="nav-link">Staff</a></li>
+          <li class="nav-item"> <a href="/contact" title="Contact" target="_self" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+{{> _navbar}}
+<div class="container mt-3 ">
+  <h1>Admin Dashboard</h1>
+  <br>
+  <h3>Edit subcriber</h3>
+  {{> _msg}}
+  <br>
+  <form class="card card-body mb-2" id="user-contact" action="/myadmin/edit/{{subscribers.id}}?_method=PUT" method="post">
+    <br>
+    <input type="hidden" name="_method" value="PUT">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstName" value="{{subscribers.first_name}}">
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastName" value="{{subscribers.last_name}}">
+    <label for="email">Email</label>
+    <input class="mb-2" type="text" id="email" name="email" value="{{subscribers.email}}">
+    <button class="submit btn btn-primary">Submit</button>
+    <br>
+      {{#each errors}}
+        <div class="form-alert"><p>{{text}}</p></div>
+      {{else}}
+
+      {{/each}}
+  </form>
+</div>
+
+<div class="container text-white footer-bg-dark p-4">
+  <div class="row">
+    <div class="col-6 col-md-8 col-lg-7">
+      <div class="row text-center">
+        <div class="col-sm-6 col-md-4 col-lg-4 col-12">
+          <ul class="list-unstyled">
+            <li class="btn-link"> <a href="/" title="Sol Plaatje University" target="_self">Home</a> </li>
+            <li class="btn-link"> <a href="/about" title="About" target="_self">About</a> </li>
+            <li class="btn-link"> <a href="/departments" title="Departments" target="_self">Departments</a> </li>
+            <li class="btn-link"> <a href="/aps" title="APS Calculator" target="_self">APS</a> </li>
+            <li class="btn-link"> <a href="/staff" title="Staff" target="_self">Staff</a> </li>
+            <li class="btn-link"> <a href="/contact" title="Contact" target="_self">Contact</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-lg-5 col-6">
+      <address>
+      <strong>Sol Plaatje University</strong><br>
+      Chapel St & Bultfontein Rd, Civic Centre, <br>
+      Kimberley, 8301, South Africa<br>
+      <abbr title="Phone">P:</abbr> +27 (0)53 491 0000
+      </address>
+      <address>
+      <strong>Email</strong><br>
+      <a href="mailto:#">information@spu.ac.za</a>
+      </address>
+    </div>
+  </div>
+</div>
+<footer class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <p>Copyright © Colors. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>

@@ -1,0 +1,49 @@
+<!-- <div class="row"> -->
+  <!-- <div class="col-md-6 mx-auto"> -->
+    <nav class="navbar navbar-expand-lg navbar-dark head-bg-dark">
+      <div class="container">  <a href="/" title="Sol Plaatje University" target="_self" class="navbar-brand"><img src="img/1200px-Sol_Plaatje_University_logo.svg.png" alt="Sol Plaatje University Logo" width="75" height="102" title="Sol Plaatje University"/></a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active"> <a href="/" title="Sol Plaatje University" target="_self" class="nav-link">Home <span class="sr-only">(current)</span></a> </li>
+            <li class="nav-item"> <a href="/about" title="About" target="_self" class="nav-link">About</a> </li>
+            <li class="nav-item"> <a href="/departments" title="Departments" target="_self" class="nav-link">Departments</a> </li>
+            <li class="nav-item"> <a href="/aps" title="APS" target="_self" class="nav-link">APS</a> </li>
+            <li class="nav-item"> <a href="/staff" title="Staff" target="_self" class="nav-link">Staff</a></li>
+            <li class="nav-item"> <a href="/contact" title="Contact" target="_self" class="nav-link">Contact</a></li>
+            <li class="nav-item"> <a href="/users/login" title="Login" target="_self" class="nav-link">Login</a></li>
+            <li class="nav-item"> <a href="/users/register" title="Register" target="_self" class="nav-link">Register</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav
+    {{> _navbar}}
+    <br>
+    <div class="card card-body">
+      <br>
+      <h3 class="text-center">Account Register</h3>
+      <form action="/users/register" method="post">
+        <div class="form-group">
+          {{> _errors}}
+          {{> _msg}}
+          <br>
+          <label for="name">Name</label>
+          <input type="text" class="form-control" name="name" value="{{name}}" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" name="email" class="form-control" value="{{email}}" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control" value="{{password}}" required>
+        </div>
+        <div class="form-group">
+          <label for="password2">Confirm Password</label>
+          <input type="password" name="password2" class="form-control" value="{{password2}}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+    </div>
+  </div>
+</div>

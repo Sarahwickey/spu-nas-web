@@ -1,0 +1,24 @@
+{
+  "name": "spu-nas-website",
+  "version": "1.0.0",
+  "description": "Web application for SPU-NAS school.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Barrington Hulana",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "chart.js": "^2.7.2",
+    "connect-flash": "^0.1.1",
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.2.9",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  }
+}

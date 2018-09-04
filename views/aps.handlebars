@@ -1,0 +1,616 @@
+<nav class="navbar navbar-expand-lg navbar-dark head-bg-dark">
+  <div class="container">  <a href="/" title="Sol Plaatje University" target="_self" class="navbar-brand"><img src="img/1200px-Sol_Plaatje_University_logo.svg.png" alt="Sol Plaatje University Logo" width="75" height="102" title="Sol Plaatje University"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active"> <a href="/" title="Sol Plaatje University" target="_self" class="nav-link">Home <span class="sr-only">(current)</span></a> </li>
+        <li class="nav-item"> <a href="/about" title="About" target="_self" class="nav-link">About</a> </li>
+        <li class="nav-item"> <a href="/departments" title="Departments" target="_self" class="nav-link">Departments</a> </li>
+        <li class="nav-item"> <a href="/aps" title="APS" target="_self" class="nav-link">APS</a> </li>
+        <li class="nav-item"> <a href="/staff" title="Staff" target="_self" class="nav-link">Staff</a></li>
+        <li class="nav-item"> <a href="/contact" title="Contact" target="_self" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{{> _navbar}}
+<div class="container mt-3">
+  <script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form'];
+if (!theForm) {
+    theForm = document.form;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+  <script type="text/javascript">
+	//<![CDATA[
+
+                function onSilverlightError(sender, args)
+                {
+                    var appSource = '';
+                    if (sender != null && sender != 0)
+                    {
+                        appSource = sender.getHost().Source;
+                    }
+                    var errorType = args.ErrorType;
+                    var iErrorCode = args.ErrorCode;
+
+                    if (errorType == 'ImageError' || errorType == 'MediaError')
+                    {
+                        return;
+                    }
+
+                    var errMsg = 'Unhandled Error in Silverlight Application ' + appSource + '\n';
+                    errMsg += 'Code: ' + iErrorCode + '    \n';
+                    errMsg += 'Category: ' + errorType + '       \n';
+                    errMsg += 'Message: ' + args.ErrorMessage + '     \n';
+
+                    if (errorType == 'ParserError')
+                    {
+                        errMsg += 'File: ' + args.xamlFile + '     \n';
+                        errMsg += 'Line: ' + args.lineNumber + '     \n';
+                        errMsg += 'Position: ' + args.charPosition + '     \n';
+                    }
+                    else if (errorType == 'RuntimeError')
+                    {
+                        if (args.lineNumber != 0)
+                        {
+                            errMsg += 'Line: ' + args.lineNumber + '     \n';
+                            errMsg += 'Position: ' + args.charPosition + '     \n';
+                        }
+                        errMsg += 'MethodName: ' + args.methodName + '     \n';
+                    }
+                    throw new Error(errMsg);
+                }
+//]]>
+</script>
+  <input type="hidden" name="lng" id="lng" value="en-GB" />
+  <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('manScript', 'form', ['tctxM',''], [], [], 90, '');
+//]]>
+</script>
+  <style>
+	.pactive {
+        background-color: #9b221f !important;
+		color:white !important;
+    }
+</style>
+<script>
+function DetectEnterPressed(e) {
+          var characterCode;
+          if (e && e.which) { // NN4 specific code
+              e = e;
+              characterCode = e.which;
+          }
+          else {
+              e = event;
+              characterCode = e.keyCode; // IE specific code
+          }
+          if (characterCode == 13) return true; // Enter key is 13
+          else return false;
+      }
+
+      function validateform(thisform) {
+          with (thisform) {
+
+              var e = document.getElementById("FirstLanguage");
+              var strFirstLanguage = e.options[e.selectedIndex].value;
+
+              if (document.getElementById("FirstLanguage").options[document.getElementById("FirstLanguage").selectedIndex].value == ""  || document.getElementById("FirstLanguageAPS").options[document.getElementById("FirstLanguageAPS").selectedIndex].value == "") {
+                  alert("Please select your First language and mark");
+                  document.getElementById("FirstLanguage").focus();
+                  return false;
+              }
+              if (document.getElementById("SecondLanguage").options[document.getElementById("SecondLanguage").selectedIndex].value == "" || document.getElementById("SecondLanguageAPS").options[document.getElementById("SecondLanguageAPS").selectedIndex].value == "") {
+                  alert("Please select your Second language and mark");
+                  document.getElementById("SecondLanguage").focus();
+                  return false;
+              }
+              if (document.getElementById("Maths").options[document.getElementById("Maths").selectedIndex].value == "" || document.getElementById("MathsAPS").options[document.getElementById("MathsAPS").selectedIndex].value == "") {
+                  alert("Please select your Math type and mark");
+                  document.getElementById("Maths").focus(); ;
+                  return false;
+              }
+              if (document.getElementById("LO").options[document.getElementById("LO").selectedIndex].value == "" || document.getElementById("LOAPS").options[document.getElementById("LOAPS").selectedIndex].value == "") {
+                  alert("Please select your LO mark");
+                  document.getElementById("LOAPS").focus();
+                  return false;
+              }
+              if (document.getElementById("Subject5").options[document.getElementById("Subject5").selectedIndex].value == "" || document.getElementById("Subject5APS").options[document.getElementById("Subject5APS").selectedIndex].value == "") {
+                  alert("Please select a fifth subject and mark");
+                  document.getElementById("Subject5").focus();
+                  return false;
+              }
+              if (document.getElementById("Subject6").options[document.getElementById("Subject6").selectedIndex].value == "" || document.getElementById("Subject6APS").options[document.getElementById("Subject6APS").selectedIndex].value == "") {
+                  alert("Please select a sixth subject and mark");
+                  document.getElementById("Subject6").focus();
+                  return false;
+              }
+              if (document.getElementById("Subject7").options[document.getElementById("Subject7").selectedIndex].value == "" || document.getElementById("Subject7APS").options[document.getElementById("Subject7APS").selectedIndex].value == "") {
+                  alert("Please select a seventh subject and mark");
+                  document.getElementById("Subject7").focus();
+                  return false;
+              }
+
+              var APSscore;
+
+              var FirstLang = parseInt(document.getElementById("FirstLanguageAPS").options[document.getElementById("FirstLanguageAPS").selectedIndex].value)
+              var SecondLang = parseInt(document.getElementById("SecondLanguageAPS").options[document.getElementById("SecondLanguageAPS").selectedIndex].value)
+              var Maths = parseInt(document.getElementById("MathsAPS").options[document.getElementById("MathsAPS").selectedIndex].value)
+              var LO = parseInt(document.getElementById("LOAPS").options[document.getElementById("LOAPS").selectedIndex].value)
+              var Subject5 = parseInt(document.getElementById("Subject5APS").options[document.getElementById("Subject5APS").selectedIndex].value)
+              var Subject6 = parseInt(document.getElementById("Subject6APS").options[document.getElementById("Subject6APS").selectedIndex].value)
+              var Subject7 = parseInt(document.getElementById("Subject7APS").options[document.getElementById("Subject7APS").selectedIndex].value)
+
+              APSscore = FirstLang + SecondLang + Maths + LO + Subject5 + Subject6 + Subject7;
+
+              document.getElementById("showScore").innerHTML = "<p class='APSscore'>Your APS score is <strong>" + APSscore + "</strong></p>";
+              return false;
+
+          }
+
+      }
+
+</script><br><h1>APS</h1><br>
+	<h2>Calculator</h2><br>
+  <p> The Admission Point Score (APS) system allocates point values to the levels of achievement obtained for your matric subjects.</p>
+  <p> If you take more than 7 subjects, select your 7 best subjects to calculate your APS.</p>
+  <p> If your APS does not meet the required direct admission score, but does fall within the testing band, you will automatically be referred for testing.</p>
+  <p> This calculator is merely a guide, final admission is based on your final NSC exam results.</p>
+  <br/>
+  <p><strong>PLEASE NOTE:</strong> this calculator will add the points for the subjects you take at school and the marks you achieve. From that calculation, a list of suggested courses will be displayed HOWEVER, some of these courses may have additional requirements e.g. Mathematics and/or Physical Sciences may be compulsory subjects, Life Sciences may be a compulsory subject etc. When you select a possible course, first make sure what the total requirements are.</p>
+  <br/>
+  <form action="#" method="post" name="APSCalculator" onsubmit="return (validateform(this))">
+    <div class="HideTableBorders">
+      <table width="100%" class="table table-bordered">
+        <tbody>
+          <tr>
+            <td style="border: 1px solid #999;padding: 3px 5px;background-color: #999;color: #fff;border-right: 1px solid #bbb;">&nbsp;</td>
+            <td style="border: 1px solid #999;padding: 3px 5px;background-color: #999;color: #fff;border-right: 1px solid #bbb;"><strong>Subjects:</strong></td>
+            <td style="border: 1px solid #999;padding: 3px 5px;background-color: #999;color: #fff;border-right: 1px solid #bbb;"><strong>Marks:</strong></td>
+          </tr>
+          <tr>
+            <td style="background-color: #e7ecf9"><strong>First Language</strong></td>
+            <td style="background-color: #e7ecf9"><select class="form-control" id="FirstLanguage" name="FirstLanguage">
+                <option selected="selected" value="">Select a subject...</option>
+                <option value="Afrikaans Home Language">Afrikaans Home Language</option>
+                <option value="English Home Language">English Home Language</option>
+                <option value="IsiNdebele Home Language">IsiNdebele Home Language</option>
+                <option value="IsiXhosa Home Language">IsiXhosa Home Language</option>
+                <option value="IsiZulu Home Language">IsiZulu Home Language</option>
+                <option value="Sepedi Home Language">Sepedi Home Language</option>
+                <option value="Sesotho Home Language">Sesotho Home Language</option>
+                <option value="Setswana Home Language">Setswana Home Language</option>
+                <option value="SiSwati Home Language">SiSwati Home Language</option>
+                <option value="Tshivenda Home Language">Tshivenda Home Language</option>
+                <option value="Xitsonga Home Language">Xitsonga Home Language</option>
+              </select></td>
+            <td style="background-color: #e7ecf9"><select class="form-control" id="FirstLanguageAPS" name="FirstLanguageAPS">
+                <option selected="selected" value="">Select your mark...</option>
+                <option value="8">90% - 100% (Level 8)</option>
+                <option value="7">80% - 89% (Level 7)</option>
+                <option value="6">70% - 79% (Level 6)</option>
+                <option value="5">60% - 69% (Level 5)</option>
+                <option value="4">50% - 59% (Level 4)</option>
+                <option value="3">40% - 49% (Level 3)</option>
+                <option value="2">30% - 39% (Level 2)</option>
+                <option value="0">0% - 29% (Level 1)</option>
+              </select></td>
+          </tr>
+          <tr>
+            <td><strong>Second Language</strong></td>
+            <td><select class="form-control" id="SecondLanguage" name="SecondLanguage">
+                <option selected="selected" value="">Select a subject...</option>
+                <option value="Afrikaans First Additional Language">Afrikaans First Additional Language</option>
+                <option value="English First Additional Language">English First Additional Language</option>
+                <option value="IsiNdebele First Additional Language">IsiNdebele First Additional Language</option>
+                <option value="IsiXhosa First Additional Language">IsiXhosa First Additional Language</option>
+                <option value="IsiZulu First Additional Language">IsiZulu First Additional Language</option>
+                <option value="Sepedi First Additional Language">Sepedi First Additional Language</option>
+                <option value="Sesotho First Additional Language">Sesotho First Additional Language</option>
+                <option value="Setswana First Additional Language">Setswana First Additional Language</option>
+                <option value="SiSwati First Additional Language">SiSwati First Additional Language</option>
+                <option value="Tshivenda First Additional Language">Tshivenda First Additional Language</option>
+                <option value="Xitsonga First Additional Language">Xitsonga First Additional Language</option>
+              </select></td>
+            <td><select class="form-control" id="SecondLanguageAPS" name="SecondLanguageAPS">
+                <option selected="selected" value="">Select your mark...</option>
+                <option value="8">90% - 100% (Level 8)</option>
+                <option value="7">80% - 89% (Level 7)</option>
+                <option value="6">70% - 79% (Level 6)</option>
+                <option value="5">60% - 69% (Level 5)</option>
+                <option value="4">50% - 59% (Level 4)</option>
+                <option value="3">40% - 49% (Level 3)</option>
+                <option value="2">30% - 39% (Level 2)</option>
+                <option value="0">0% - 29% (Level 1)</option>
+              </select></td>
+          </tr>
+          <tr>
+            <td style="background-color: #e7ecf9"><strong>Maths</strong></td>
+            <td style="background-color: #e7ecf9"><select class="form-control" id="Maths" name="Maths">
+                <option selected="selected" value="">Select a subject...</option>
+                <option value="Mathematical Literacy">Mathematical Literacy</option>
+                <option value="Mathematics">Mathematics</option>
+              </select></td>
+            <td style="background-color: #e7ecf9"><select class="form-control" id="MathsAPS" name="MathsAPS">
+                <option selected="selected" value="">Select your mark...</option>
+                <option value="8">90% - 100% (Level 8)</option>
+                <option value="7">80% - 89% (Level 7)</option>
+                <option value="6">70% - 79% (Level 6)</option>
+                <option value="5">60% - 69% (Level 5)</option>
+                <option value="4">50% - 59% (Level 4)</option>
+                <option value="3">40% - 49% (Level 3)</option>
+                <option value="2">30% - 39% (Level 2)</option>
+                <option value="0">0% - 29% (Level 1)</option>
+              </select></td>
+          </tr>
+          <tr>
+            <td><strong>Life Orientation (LO)</strong></td>
+            <td><select class="form-control" id="LO" name="LO">
+                <option selected="selected" value="Life Orientation">Life Orientation</option>
+              </select></td>
+            <td><select class="form-control" id="LOAPS" name="LOAPS">
+                <option selected="selected" value="">Select your mark...</option>
+                <option value="8">90% - 100% (Level 8)</option>
+                <option value="7">80% - 89% (Level 7)</option>
+                <option value="6">70% - 79% (Level 6)</option>
+                <option value="5">60% - 69% (Level 5)</option>
+                <option value="4">50% - 59% (Level 4)</option>
+                <option value="3">40% - 49% (Level 3)</option>
+                <option value="2">30% - 39% (Level 2)</option>
+                <option value="0">0% - 29% (Level 1)</option>
+              </select></td>
+          </tr>
+          <tr>
+            <td style="background-color: #e7ecf9"><strong>Subject 5</strong></td>
+            <td style="background-color: #e7ecf9"><select class="form-control" id="Subject5" name="Subject5">
+                <option selected="selected" value="">Select a subject...</option>
+                <option value="Accounting">Accounting</option>
+                <option value="Afrikaans Second Additional Language">Afrikaans Second Additional Language</option>
+                <option value="Agricultural Management Practices">Agricultural Management Practices</option>
+                <option value="Agricultural Science">Agricultural Science</option>
+                <option value="Agricultural Technology">Agricultural Technology</option>
+                <option value="Arabic Second Additional Language">Arabic Second Additional Language</option>
+                <option value="Business Studies">Business Studies</option>
+                <option value="Civil Technology">Civil Technology</option>
+                <option value="Computer Applications Technology">Computer Applications Technology</option>
+                <option value="Consumer Studies">Consumer Studies</option>
+                <option value="Dance Studies">Dance Studies</option>
+                <option value="Design">Design</option>
+                <option value="Dramatic Arts">Dramatic Arts</option>
+                <option value="Economics">Economics</option>
+                <option value="Electrical Technology">Electrical Technology</option>
+                <option value="Engineering Graphics and Design">Engineering Graphics and Design</option>
+                <option value="English Second Additional Language">English Second Additional Language</option>
+                <option value="French Second Additional Language">French Second Additional Language</option>
+                <option value="Geography">Geography</option>
+                <option value="German Home Language">German Home Language</option>
+                <option value="German Second Additional Language">German Second Additional Language</option>
+                <option value="Gujarati First Additional Language">Gujarati First Additional Language</option>
+                <option value="Gujarati Home Language">Gujarati Home Language</option>
+                <option value="Gujarati Second Additional Language">Gujarati Second Additional Language</option>
+                <option value="Hebrew Second Additional Language">Hebrew Second Additional Language</option>
+                <option value="Hindi First Additional Language">Hindi First Additional Language</option>
+                <option value="Hindi Home Language">Hindi Home Language</option>
+                <option value="Hindi Second Additional Language">Hindi Second Additional Language</option>
+                <option value="History">History</option>
+                <option value="Hospitality Studies">Hospitality Studies</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="IsiNdebele Second Additional Language">IsiNdebele Second Additional Language</option>
+                <option value="IsiXhosa Second Additional Language">IsiXhosa Second Additional Language</option>
+                <option value="IsiZulu Second Additional Language">IsiZulu Second Additional Language</option>
+                <option value="Italian Second Additional Language">Italian Second Additional Language</option>
+                <option value="Latin Second Additional Language">Latin Second Additional Language</option>
+                <option value="Life Sciences">Life Sciences</option>
+                <option value="Mechanical Technology">Mechanical Technology</option>
+                <option value="Music">Music</option>
+                <option value="Physical Sciences">Physical Sciences</option>
+                <option value="Portuguese First Additional Language">Portuguese First Additional Language</option>
+                <option value="Portuguese Home Language">Portuguese Home Language</option>
+                <option value="Portuguese Second Additional Language">Portuguese Second Additional Language</option>
+                <option value="Religion Studies">Religion Studies</option>
+                <option value="Sepedi Second Additional Language">Sepedi Second Additional Language</option>
+                <option value="Sesotho Second Additional Language">Sesotho Second Additional Language</option>
+                <option value="Setswana Second Additional Language">Setswana Second Additional Language</option>
+                <option value="SiSwati Second Additional Language">SiSwati Second Additional Language</option>
+                <option value="Spanish Second Additional Language">Spanish Second Additional Language</option>
+                <option value="Tamil First Additional Language">Tamil First Additional Language</option>
+                <option value="Tamil Home Language">Tamil Home Language</option>
+                <option value="Tamil Second Additional Language">Tamil Second Additional Language</option>
+                <option value="Telegu First Additional Language">Telegu First Additional Language</option>
+                <option value="Telegu Home Language">Telegu Home Language</option>
+                <option value="Telegu Second Additional Language">Telegu Second Additional Language</option>
+                <option value="Tourism">Tourism</option>
+                <option value="Tshivenda Second Additional Language">Tshivenda Second Additional Language</option>
+                <option value="Urdu First Additional Language">Urdu First Additional Language</option>
+                <option value="Urdu Home Language">Urdu Home Language</option>
+                <option value="Urdu Second Additional Language">Urdu Second Additional Language</option>
+                <option value="Visual Arts">Visual Arts</option>
+                <option value="Xitsonga Second Additional Language">Xitsonga Second Additional Language</option>
+              </select></td>
+            <td style="background-color: #e7ecf9"><select class="form-control" id="Subject5APS" name="Subject5APS">
+                <option selected="selected" value="">Select your mark...</option>
+                <option value="8">90% - 100% (Level 8)</option>
+                <option value="7">80% - 89% (Level 7)</option>
+                <option value="6">70% - 79% (Level 6)</option>
+                <option value="5">60% - 69% (Level 5)</option>
+                <option value="4">50% - 59% (Level 4)</option>
+                <option value="3">40% - 49% (Level 3)</option>
+                <option value="2">30% - 39% (Level 2)</option>
+                <option value="0">0% - 29% (Level 1)</option>
+              </select></td>
+          </tr>
+          <tr>
+            <td><strong>Subject 6</strong></td>
+            <td><select class="form-control" id="Subject6" name="Subject6">
+                <option selected="selected" value="">Select a subject...</option>
+                <option value="Accounting">Accounting</option>
+                <option value="Afrikaans Second Additional Language">Afrikaans Second Additional Language</option>
+                <option value="Agricultural Management Practices">Agricultural Management Practices</option>
+                <option value="Agricultural Science">Agricultural Science</option>
+                <option value="Agricultural Technology">Agricultural Technology</option>
+                <option value="Arabic Second Additional Language">Arabic Second Additional Language</option>
+                <option value="Business Studies">Business Studies</option>
+                <option value="Civil Technology">Civil Technology</option>
+                <option value="Computer Applications Technology">Computer Applications Technology</option>
+                <option value="Consumer Studies">Consumer Studies</option>
+                <option value="Dance Studies">Dance Studies</option>
+                <option value="Design">Design</option>
+                <option value="Dramatic Arts">Dramatic Arts</option>
+                <option value="Economics">Economics</option>
+                <option value="Electrical Technology">Electrical Technology</option>
+                <option value="Engineering Graphics and Design">Engineering Graphics and Design</option>
+                <option value="English Second Additional Language">English Second Additional Language</option>
+                <option value="French Second Additional Language">French Second Additional Language</option>
+                <option value="Geography">Geography</option>
+                <option value="German Home Language">German Home Language</option>
+                <option value="German Second Additional Language">German Second Additional Language</option>
+                <option value="Gujarati First Additional Language">Gujarati First Additional Language</option>
+                <option value="Gujarati Home Language">Gujarati Home Language</option>
+                <option value="Gujarati Second Additional Language">Gujarati Second Additional Language</option>
+                <option value="Hebrew Second Additional Language">Hebrew Second Additional Language</option>
+                <option value="Hindi First Additional Language">Hindi First Additional Language</option>
+                <option value="Hindi Home Language">Hindi Home Language</option>
+                <option value="Hindi Second Additional Language">Hindi Second Additional Language</option>
+                <option value="History">History</option>
+                <option value="Hospitality Studies">Hospitality Studies</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="IsiNdebele Second Additional Language">IsiNdebele Second Additional Language</option>
+                <option value="IsiXhosa Second Additional Language">IsiXhosa Second Additional Language</option>
+                <option value="IsiZulu Second Additional Language">IsiZulu Second Additional Language</option>
+                <option value="Italian Second Additional Language">Italian Second Additional Language</option>
+                <option value="Latin Second Additional Language">Latin Second Additional Language</option>
+                <option value="Life Sciences">Life Sciences</option>
+                <option value="Mechanical Technology">Mechanical Technology</option>
+                <option value="Music">Music</option>
+                <option value="Physical Sciences">Physical Sciences</option>
+                <option value="Portuguese First Additional Language">Portuguese First Additional Language</option>
+                <option value="Portuguese Home Language">Portuguese Home Language</option>
+                <option value="Portuguese Second Additional Language">Portuguese Second Additional Language</option>
+                <option value="Religion Studies">Religion Studies</option>
+                <option value="Sepedi Second Additional Language">Sepedi Second Additional Language</option>
+                <option value="Sesotho Second Additional Language">Sesotho Second Additional Language</option>
+                <option value="Setswana Second Additional Language">Setswana Second Additional Language</option>
+                <option value="SiSwati Second Additional Language">SiSwati Second Additional Language</option>
+                <option value="Spanish Second Additional Language">Spanish Second Additional Language</option>
+                <option value="Tamil First Additional Language">Tamil First Additional Language</option>
+                <option value="Tamil Home Language">Tamil Home Language</option>
+                <option value="Tamil Second Additional Language">Tamil Second Additional Language</option>
+                <option value="Telegu First Additional Language">Telegu First Additional Language</option>
+                <option value="Telegu Home Language">Telegu Home Language</option>
+                <option value="Telegu Second Additional Language">Telegu Second Additional Language</option>
+                <option value="Tourism">Tourism</option>
+                <option value="Tshivenda Second Additional Language">Tshivenda Second Additional Language</option>
+                <option value="Urdu First Additional Language">Urdu First Additional Language</option>
+                <option value="Urdu Home Language">Urdu Home Language</option>
+                <option value="Urdu Second Additional Language">Urdu Second Additional Language</option>
+                <option value="Visual Arts">Visual Arts</option>
+                <option value="Xitsonga Second Additional Language">Xitsonga Second Additional Language</option>
+              </select></td>
+            <td><select class="form-control" id="Subject6APS" name="Subject6APS">
+                <option selected="selected" value="">Select your mark...</option>
+                <option value="8">90% - 100% (Level 8)</option>
+                <option value="7">80% - 89% (Level 7)</option>
+                <option value="6">70% - 79% (Level 6)</option>
+                <option value="5">60% - 69% (Level 5)</option>
+                <option value="4">50% - 59% (Level 4)</option>
+                <option value="3">40% - 49% (Level 3)</option>
+                <option value="2">30% - 39% (Level 2)</option>
+                <option value="0">0% - 29% (Level 1)</option>
+              </select></td>
+          </tr>
+          <tr>
+            <td style="background-color: #e7ecf9"><strong>Subject 7</strong></td>
+            <td style="background-color: #e7ecf9"><select class="form-control" id="Subject7" name="Subject7">
+                <option selected="selected" value="">Select a subject...</option>
+                <option value="Accounting">Accounting</option>
+                <option value="Afrikaans Second Additional Language">Afrikaans Second Additional Language</option>
+                <option value="Agricultural Management Practices">Agricultural Management Practices</option>
+                <option value="Agricultural Science">Agricultural Science</option>
+                <option value="Agricultural Technology">Agricultural Technology</option>
+                <option value="Arabic Second Additional Language">Arabic Second Additional Language</option>
+                <option value="Business Studies">Business Studies</option>
+                <option value="Civil Technology">Civil Technology</option>
+                <option value="Computer Applications Technology">Computer Applications Technology</option>
+                <option value="Consumer Studies">Consumer Studies</option>
+                <option value="Dance Studies">Dance Studies</option>
+                <option value="Design">Design</option>
+                <option value="Dramatic Arts">Dramatic Arts</option>
+                <option value="Economics">Economics</option>
+                <option value="Electrical Technology">Electrical Technology</option>
+                <option value="Engineering Graphics and Design">Engineering Graphics and Design</option>
+                <option value="English Second Additional Language">English Second Additional Language</option>
+                <option value="French Second Additional Language">French Second Additional Language</option>
+                <option value="Geography">Geography</option>
+                <option value="German Home Language">German Home Language</option>
+                <option value="German Second Additional Language">German Second Additional Language</option>
+                <option value="Gujarati First Additional Language">Gujarati First Additional Language</option>
+                <option value="Gujarati Home Language">Gujarati Home Language</option>
+                <option value="Gujarati Second Additional Language">Gujarati Second Additional Language</option>
+                <option value="Hebrew Second Additional Language">Hebrew Second Additional Language</option>
+                <option value="Hindi First Additional Language">Hindi First Additional Language</option>
+                <option value="Hindi Home Language">Hindi Home Language</option>
+                <option value="Hindi Second Additional Language">Hindi Second Additional Language</option>
+                <option value="History">History</option>
+                <option value="Hospitality Studies">Hospitality Studies</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="IsiNdebele Second Additional Language">IsiNdebele Second Additional Language</option>
+                <option value="IsiXhosa Second Additional Language">IsiXhosa Second Additional Language</option>
+                <option value="IsiZulu Second Additional Language">IsiZulu Second Additional Language</option>
+                <option value="Italian Second Additional Language">Italian Second Additional Language</option>
+                <option value="Latin Second Additional Language">Latin Second Additional Language</option>
+                <option value="Life Sciences">Life Sciences</option>
+                <option value="Mechanical Technology">Mechanical Technology</option>
+                <option value="Music">Music</option>
+                <option value="Physical Sciences">Physical Sciences</option>
+                <option value="Portuguese First Additional Language">Portuguese First Additional Language</option>
+                <option value="Portuguese Home Language">Portuguese Home Language</option>
+                <option value="Portuguese Second Additional Language">Portuguese Second Additional Language</option>
+                <option value="Religion Studies">Religion Studies</option>
+                <option value="Sepedi Second Additional Language">Sepedi Second Additional Language</option>
+                <option value="Sesotho Second Additional Language">Sesotho Second Additional Language</option>
+                <option value="Setswana Second Additional Language">Setswana Second Additional Language</option>
+                <option value="SiSwati Second Additional Language">SiSwati Second Additional Language</option>
+                <option value="Spanish Second Additional Language">Spanish Second Additional Language</option>
+                <option value="Tamil First Additional Language">Tamil First Additional Language</option>
+                <option value="Tamil Home Language">Tamil Home Language</option>
+                <option value="Tamil Second Additional Language">Tamil Second Additional Language</option>
+                <option value="Telegu First Additional Language">Telegu First Additional Language</option>
+                <option value="Telegu Home Language">Telegu Home Language</option>
+                <option value="Telegu Second Additional Language">Telegu Second Additional Language</option>
+                <option value="Tourism">Tourism</option>
+                <option value="Tshivenda Second Additional Language">Tshivenda Second Additional Language</option>
+                <option value="Urdu First Additional Language">Urdu First Additional Language</option>
+                <option value="Urdu Home Language">Urdu Home Language</option>
+                <option value="Urdu Second Additional Language">Urdu Second Additional Language</option>
+                <option value="Visual Arts">Visual Arts</option>
+                <option value="Xitsonga Second Additional Language">Xitsonga Second Additional Language</option>
+              </select></td>
+            <td style="background-color: #e7ecf9"><select class="form-control" id="Subject7APS" name="Subject7APS">
+                <option selected="selected" value="">Select your mark...</option>
+                <option value="8">90% - 100% (Level 8)</option>
+                <option value="7">80% - 89% (Level 7)</option>
+                <option value="6">70% - 79% (Level 6)</option>
+                <option value="5">60% - 69% (Level 5)</option>
+                <option value="4">50% - 59% (Level 4)</option>
+                <option value="3">40% - 49% (Level 3)</option>
+                <option value="2">30% - 39% (Level 2)</option>
+                <option value="0">0% - 29% (Level 1)</option>
+              </select></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><input class="btn btn-default" onclick="return(validateform(this))" onkeypress="return(DetectEnterPressed(event))" type="submit" value="Calculate" /></td>
+            <td align="center" id="showScore">&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+  <p>&nbsp; </p>
+</div>
+<!-- placeholder finish-->
+<div class="col-sm-3 tbsColLast"> <!-- zone right -->
+  <div class="col-sm-12" style="min-height:0px;"> </div>
+</div>
+</div>
+<!-- closing of BSRow  -->
+
+</div>
+<!--container-->
+
+</main>
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("manScript_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();//]]>
+</script>
+<script type="text/javascript">
+	//<![CDATA[
+window.MFUResourceKeys = [];
+window.MFUResources = {};
+window.MFUResourceKeys.push('sl.mfu.upload');
+window.MFUResources['sl.mfu.upload'] = 'Upload';
+window.MFUResourceKeys.push('sl.mfu.cancel');
+window.MFUResources['sl.mfu.cancel'] = 'Cancel';
+window.MFUResourceKeys.push('sl.mfu.name');
+window.MFUResources['sl.mfu.name'] = 'Name';
+window.MFUResourceKeys.push('sl.mfu.size');
+window.MFUResources['sl.mfu.size'] = 'Size';
+window.MFUResourceKeys.push('sl.mfu.progress');
+window.MFUResources['sl.mfu.progress'] = 'Progress';
+window.MFUResourceKeys.push('sl.mfu.totalfiles');
+window.MFUResources['sl.mfu.totalfiles'] = 'Total: {0}';
+window.MFUResourceKeys.push('sl.mfu.totalsize');
+window.MFUResources['sl.mfu.totalsize'] = '{0} of {1}';
+window.MFUResourceKeys.push('sl.mfu.selectfiles');
+window.MFUResources['sl.mfu.selectfiles'] = 'Select files';
+window.MFUResourceKeys.push('sl.mfu.clear');
+window.MFUResources['sl.mfu.clear'] = 'Clear';
+window.MFUResourceKeys.push('sl.mfu.error.noaliaspath');
+window.MFUResources['sl.mfu.error.noaliaspath'] = 'No alias path selected.';
+window.MFUResourceKeys.push('sl.mfu.error.maxnumbertoupload');
+window.MFUResources['sl.mfu.error.maxnumbertoupload'] = 'You have exceeded the total allowable number of files to upload.';
+window.MFUResourceKeys.push('sl.mfu.error.maxuploadamount');
+window.MFUResources['sl.mfu.error.maxuploadamount'] = 'You have exceeded the total allowable upload amount.\\nThe total allowable upload amount is {0}';
+window.MFUResourceKeys.push('sl.mfu.error.maxuploadsize');
+window.MFUResources['sl.mfu.error.maxuploadsize'] = 'The file \'{0}\' exceeds the maximum upload size.\\nThe maximum upload size for a single file is {1}';
+window.MFUResourceKeys.push('sl.mfu.error.fileexists');
+window.MFUResources['sl.mfu.error.fileexists'] = 'File \'{0}\' already exists, overwrite?';
+
+//]]>
+</script>
+</form>
+<br>
+<div class="container text-white footer-bg-dark p-4">
+  <div class="row">
+    <div class="col-6 col-md-8 col-lg-7">
+      <div class="row text-center">
+        <div class="col-sm-6 col-md-4 col-lg-4 col-12">
+          <ul class="list-unstyled">
+            <li class="btn-link"> <a href="/" title="Sol Plaatje University" target="_self">Home</a> </li>
+            <li class="btn-link"> <a href="/about" title="About" target="_self">About</a> </li>
+            <li class="btn-link"> <a href="/departments" title="Departments" target="_self">Departments</a> </li>
+            <li class="btn-link"> <a href="/aps" title="APS Calculator" target="_self">APS</a> </li>
+            <li class="btn-link"> <a href="/staff" title="Staff" target="_self">Staff</a> </li>
+            <li class="btn-link"> <a href="/contact" title="Contact" target="_self">Contact</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-lg-5 col-6">
+      <address>
+      <strong>Sol Plaatje University</strong><br>
+      Chapel St & Bultfontein Rd, Civic Centre, <br>
+      Kimberley, 8301, South Africa<br>
+      <abbr title="Phone">P:</abbr> +27 (0)53 491 0000
+      </address>
+      <address>
+      <strong>Email</strong><br>
+      <a href="mailto:#">information@spu.ac.za</a>
+      </address>
+    </div>
+  </div>
+</div>
+<footer class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <p>Copyright © Colors. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
